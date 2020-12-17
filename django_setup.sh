@@ -36,8 +36,8 @@ sudo -H pip3 install virtualenv
 # *******
 
 
-venv_name=skewt
-git_repo=https://github.com/johnckealy/skewtfrontend.git
+venv_name=propylon
+git_repo=https://github.com/johnckealy/propylon.git
 cd /var/www/
 virtualenv ${venv_name}
 cd ${venv_name}
@@ -45,7 +45,7 @@ source bin/activate
 git clone ${git_repo}
 
 
-projectname=skewtfrontend
+projectname=propylon
 pip install -r ${projectname}/requirements.txt
 
 touch ${projectname}/.env
@@ -73,6 +73,10 @@ sudo supervisorctl status skewt
 sudo supervisorctl restart    # optional?
 sudo supervisorctl restart skewt    # optional?
 
+
+
+#install SSL
+sudo certbot --nginx -d example.com -d www.example.com
 
 
 # trouble shooting
